@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico - A.R.O.S.</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Histórico de Conversas</h1>
+            <a href="/" class="btn btn-back">← Voltar</a>
+        </header>
+        <main>
+            <div class="history-content">
+                {% for entry in history %}
+                    <pre>{{ entry }}</pre>
+                {% endfor %}
+                {% if not history %}
+                    <p>Nenhuma interação registrada.</p>
+                {% endif %}
+            </div>
+        </main>
+    </div>
+</body>
+</html>

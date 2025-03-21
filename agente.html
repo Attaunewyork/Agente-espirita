@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ agent_name }} - A.R.O.S.</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Agente: {{ agent_name }}</h1>
+            <a href="/" class="btn btn-back">← Voltar</a>
+        </header>
+        <main>
+            <form method="POST">
+                <textarea name="user_input" rows="5" cols="50" placeholder="Digite sua mensagem..." required></textarea>
+                <button type="submit" class="btn btn-submit">Enviar</button>
+            </form>
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+            {% if user_input %}
+                <h3>Sua Mensagem:</h3>
+                <p>{{ user_input }}</p>
+                <h3>Resposta:</h3>
+                <p>{{ response }}</p>
+            {% endif %}
+        </main>
+    </div>
+</body>
+</html>
